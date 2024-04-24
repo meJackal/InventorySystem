@@ -1,0 +1,26 @@
+﻿<Window x:Class="InventorySystem.UpdatePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventorySystem"
+        mc:Ignorable="d"
+        Title="UpdatePage" Height="450" Width="800">
+    <Grid Background="#87CEEB">
+        <Label x:Name="lblImage" HorizontalAlignment="Left" Margin="20,20,0,20"  Width="300"
+               BorderBrush="Black" BorderThickness="2"/>
+
+        <TextBox x:Name="tbName" Margin="400,121,160,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="30"
+                 FontSize="15" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="tbQty" Margin="400,187,160,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="30"
+                 FontSize="15" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="tbPrice" Margin="400,257,160,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="30"
+                 FontSize="15" VerticalContentAlignment="Center"/>
+
+        <Button x:Name="btnUpdate" Margin="440,362,200,0" Content="Save Changes"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                FontSize="15" Height="32" VerticalAlignment="Top"/>
+
+        <Button x:Name="btnBack" Content="Back" Margin="0,10,10,0" Click="btnBack_Click" HorizontalAlignment="Right" Width="100" Height="44" VerticalAlignment="Top" />
+    </Grid>
+</Window>

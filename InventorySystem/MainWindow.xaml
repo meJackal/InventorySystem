@@ -7,19 +7,22 @@
         mc:Ignorable="d"
         Title="MAINPAGE" Height="450" Width="800">
     <Grid Background="#87CEEB">
-        
-        <StackPanel Margin="10,10,650,10">
-        <Button x:Name="btnDogs" Margin="10,45,5,5" FontSize="18" Content="DOGS"
+
+        <StackPanel Margin="10,45,650,45">
+            <Button x:Name="btnDogs" Margin="10,45,5,5" FontSize="18" Content="DOGS"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="29" VerticalAlignment="Top"/>
 
-        <Button x:Name="btnCats" Margin="10,5,5,5" FontSize="18" Content="CATS"
+            <Button x:Name="btnCats" Margin="10,5,5,5" FontSize="18" Content="CATS"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Top"/>
 
-        <Button x:Name="btnSupp" Margin="10,5,5,5" FontSize="18" Content="SUPPLIES"
+            <Button x:Name="btnSupp" Margin="10,5,5,5" FontSize="18" Content="SUPPLIES"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Top"/>
         </StackPanel>
-    
-        <TextBox x:Name="tbSearch" Margin="155,10,270,0" FontSize="15" Height="30" VerticalAlignment="Top" />
+
+        <TextBox x:Name="tbSearch" Margin="155,10,270,0" FontSize="15" Height="30" VerticalAlignment="Top" 
+                 VerticalContentAlignment="Center"/>
+
+        <Label x:Name="lblUsername" Content="Welcome : " Margin="630,10,10,394" />
 
         <ListView x:Name="inventoryListView" d:ItemsSource="{d:SampleData ItemCount=20}" FontSize="12" Width="636" Margin="155,45,9,10">
             <ListView.View>
@@ -29,12 +32,12 @@
                     <GridViewColumn Header="PRODUCT TYPE" Width="120"/>
                     <GridViewColumn Header="QUANTITY" Width="120"/>
                     <GridViewColumn Header="PRICE" Width="60"/>
-                    <GridViewColumn Header="YES" Width="120"/>
+                    <GridViewColumn Header="UPDATED BY" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button x:Name="btnLogOut" Content="LogOut" Margin="720,10,10,394" 
-                BorderBrush="Transparent" BorderThickness="0" Background="Transparent"/>
+        <Button x:Name="btnLogOut" Content="LogOut" Margin="10,394,720,0" 
+                BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Height="30" VerticalAlignment="Top"/>
     </Grid>
 </Window>
