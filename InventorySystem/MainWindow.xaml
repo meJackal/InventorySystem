@@ -8,36 +8,80 @@
         Title="MAINPAGE" Height="450" Width="800">
     <Grid Background="#87CEEB">
 
-        <StackPanel Margin="10,45,650,45">
-            <Button x:Name="btnDogs" Margin="10,45,5,5" FontSize="18" Content="DOGS"
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="29" VerticalAlignment="Top"/>
+        <Button x:Name="btnDogs" Margin="10,117,0,0" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="60" 
+                BorderBrush="Transparent" BorderThickness="0" VerticalAlignment="Top" RenderTransformOrigin="0.167,0.501" HorizontalAlignment="Left" Width="60">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/happy.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
-            <Button x:Name="btnCats" Margin="10,5,5,5" FontSize="18" Content="CATS"
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Top"/>
+        <Button x:Name="btnCats" Margin="10,182,0,0"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="60" VerticalAlignment="Top"
+                BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="60">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/kitty.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
-            <Button x:Name="btnSupp" Margin="10,5,5,5" FontSize="18" Content="SUPPLIES"
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Top"/>
-        </StackPanel>
+        <Button x:Name="btnSupp" Margin="10,247,0,0" FontSize="18"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="60" VerticalAlignment="Top"
+                BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="60">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/pet-supplies.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
-        <TextBox x:Name="tbSearch" Margin="155,10,270,0" FontSize="15" Height="30" VerticalAlignment="Top" 
+        <TextBox x:Name="tbSearch" Margin="90,10,350,0" FontSize="15" Height="30" VerticalAlignment="Top" 
                  VerticalContentAlignment="Center"/>
 
-        <Label x:Name="lblUsername" Content="Welcome : " Margin="630,10,10,394" />
-
-        <ListView x:Name="inventoryListView" d:ItemsSource="{d:SampleData ItemCount=20}" FontSize="12" Width="636" Margin="155,45,9,10">
+        <ListView x:Name="inventoryListView" d:ItemsSource="{d:SampleData ItemCount=10}" FontSize="12" Margin="90,57,10,26">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" Width="50"/>
-                    <GridViewColumn Header="NAME" Width="120"/>
-                    <GridViewColumn Header="PRODUCT TYPE" Width="120"/>
-                    <GridViewColumn Header="QUANTITY" Width="120"/>
-                    <GridViewColumn Header="PRICE" Width="60"/>
-                    <GridViewColumn Header="UPDATED BY" Width="120"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="50"/>
+                    <GridViewColumn Header="NAME" DisplayMemberBinding="{Binding Name}" Width="120"/>
+                    <GridViewColumn Header="PRODUCT TYPE" DisplayMemberBinding="{Binding Type}" Width="120"/>
+                    <GridViewColumn Header="QUANTITY" DisplayMemberBinding="{Binding Quantity}" Width="120"/>
+                    <GridViewColumn Header="PRICE" DisplayMemberBinding="{Binding Price}" Width="60"/>
+                    <GridViewColumn Header="UPDATED BY" DisplayMemberBinding="{Binding UpdatedBy}" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button x:Name="btnLogOut" Content="LogOut" Margin="10,394,720,0" 
-                BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Height="30" VerticalAlignment="Top"/>
+        <Button x:Name="btnLogOut" Margin="20,0,0,26" 
+                BorderBrush="Transparent" BorderThickness="0" 
+                Click="btnLogOut_Click" HorizontalAlignment="Left" Width="35" Height="35" VerticalAlignment="Bottom">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/exit.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>

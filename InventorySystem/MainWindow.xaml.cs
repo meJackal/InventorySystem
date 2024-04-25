@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static InventorySystem.MainWindow;
 
 namespace InventorySystem
 {
@@ -23,8 +25,14 @@ namespace InventorySystem
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
-
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            LogInPage logIn = new LogInPage();
+            logIn.Show();
+            this.Close();
+        }
     }
 }

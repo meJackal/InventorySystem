@@ -10,14 +10,14 @@
         <Label x:Name="lblImage" HorizontalAlignment="Left" Margin="20,20,0,20"  Width="300"
                BorderBrush="Black" BorderThickness="2"/>
 
-        <TextBox x:Name="tbName" Margin="400,121,160,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="30"
+        <TextBox x:Name="tbName" Margin="400,121,160,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
                  FontSize="15" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="tbQty" Margin="400,187,160,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="30"
+        <TextBox x:Name="tbQty" Margin="400,187,160,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
                  FontSize="15" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="tbPrice" Margin="400,257,160,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="30"
+        <TextBox x:Name="tbPrice" Margin="400,257,160,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
                  FontSize="15" VerticalContentAlignment="Center"/>
 
-        <Button x:Name="btnUpdate" Margin="440,362,200,0" Content="Save Changes"
+        <Button x:Name="btnUpdate" Margin="440,325,200,0" Content="Save Changes"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                 FontSize="15" Height="32" VerticalAlignment="Top"/>
 

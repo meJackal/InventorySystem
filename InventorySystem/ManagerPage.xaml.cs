@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace InventorySystem
 {
     /// <summary>
-    /// Interaction logic for LogInxaml.xaml
+    /// Interaction logic for ManagerPage.xaml
     /// </summary>
-    public partial class LogInxaml : Window
+    public partial class ManagerPage : Window
     {
-        public LogInxaml()
+        public ManagerPage()
         {
             InitializeComponent();
         }
