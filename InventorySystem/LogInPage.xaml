@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="LogInPage" Height="450" Width="800">
     <Grid Background="#87CEEB">
-        <Label Content="TITLE" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="60"
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150"/>
+        <Label Content="PET SHOP" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="60"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780"/>
 
         <Label Content="Username :" Margin="248,154,402,0" FontSize="20" Height="40"
                VerticalContentAlignment="Center" VerticalAlignment="Top"/>

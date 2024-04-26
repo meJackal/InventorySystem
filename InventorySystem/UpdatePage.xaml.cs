@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static InventorySystem.lvData;
 
 namespace InventorySystem
 {
@@ -19,9 +20,16 @@ namespace InventorySystem
     /// </summary>
     public partial class UpdatePage : Window
     {
-        public UpdatePage()
+        private inventory selectedItem;
+
+        public UpdatePage(inventory item)
         {
             InitializeComponent();
+            selectedItem = item;
+
+            tbName.Text = item.Name;
+            tbQty.Text = item.Quantity.ToString();
+            tbPrice.Text = item.Price.ToString();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

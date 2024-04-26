@@ -56,15 +56,19 @@
         <TextBox x:Name="tbSearch" Margin="90,10,350,0" FontSize="15" Height="30" VerticalAlignment="Top" 
                  VerticalContentAlignment="Center"/>
 
-        <ListView x:Name="inventoryListView" d:ItemsSource="{d:SampleData ItemCount=10}" FontSize="12" Margin="90,57,10,26">
+        <ListView x:Name="inventoryListView" ItemsSource="{Binding Test}" d:ItemsSource="{d:SampleData ItemCount=10}" 
+                  FontSize="12" Margin="90,57,10,26" MouseDoubleClick="inventoryListView_DoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="50"/>
                     <GridViewColumn Header="NAME" DisplayMemberBinding="{Binding Name}" Width="120"/>
+                    <GridViewColumn Header="INSTOCK" DisplayMemberBinding="{Binding Availability}" Width="120"/>
                     <GridViewColumn Header="PRODUCT TYPE" DisplayMemberBinding="{Binding Type}" Width="120"/>
                     <GridViewColumn Header="QUANTITY" DisplayMemberBinding="{Binding Quantity}" Width="120"/>
                     <GridViewColumn Header="PRICE" DisplayMemberBinding="{Binding Price}" Width="60"/>
                     <GridViewColumn Header="UPDATED BY" DisplayMemberBinding="{Binding UpdatedBy}" Width="120"/>
+                    <GridViewColumn Header="DATE CHECKED" DisplayMemberBinding="{Binding dt}" Width="120"/>
+                    <GridViewColumn Header="REMARKS" DisplayMemberBinding="{Binding Remark}" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>
