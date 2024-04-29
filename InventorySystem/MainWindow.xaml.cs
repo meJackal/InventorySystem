@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using static InventorySystem.lvData;
 
 namespace InventorySystem
 {
@@ -12,19 +11,10 @@ namespace InventorySystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<inventory> Test { get; set; }
-
+ 
         public MainWindow()
         {
             InitializeComponent();
-
-            Test = new ObservableCollection<inventory>
-            {
-                new lvData.inventory { ID = 1, Name = "Item 1", Availability = "Available", Type = "Dog", 
-                    Quantity = 10, Price = 19, UpdatedBy = "John", dt = DateTime.Now, Remark = "New" },
-                new lvData.inventory { ID = 2, Name = "Item 2", Availability = "NotAvailable", Type = "Cat", 
-                    Quantity = 0, Price = 29, UpdatedBy = "Mary", dt = DateTime.Now, Remark = "Out of stock" }
-            };
 
             DataContext = this;
         }

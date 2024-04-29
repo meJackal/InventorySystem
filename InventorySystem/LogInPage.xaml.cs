@@ -20,28 +20,52 @@ namespace InventorySystem
     /// </summary>
     public partial class LogInPage : Window
     {
+        DataClasses1DataContext _dbConn = null;
+        bool flag = false;
+
         public LogInPage()
         {
             InitializeComponent();
-        }
-
-        private bool Credentials(string username, string password)
-        {
-            return username == "admin" && password == "password";
+            _dbConn = new DataClasses1DataContext(
+                Properties.Settings.Default.InventoryManagementConnectionString);
         }
 
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
-            if (Credentials(tbName.Text, pbPass.Password))
+            if (tbName.Text.Length > 0 && pbPass.Password.Length > 0)
+            {
+                flag = false;
+                IQueryable<staff> selectResults = from s in _dbConn.staffs
+                                                  where s.staff_Username == tbName.Text
+                                                  select s;
+
+                if (selectResults.Count() == 1)
+                {
+                    foreach (staff s in selectResults)
+                    {
+                        if (s.staff_Pass == pbPass.Password)
+                        {
+                            MessageBox.Show("Login complete.");
+
+                            flag = true;
+                            break;
+                        }
+                        else
+                            MessageBox.Show("The password is incorrect.");
+                    }
+                }
+                else
+                    MessageBox.Show("The username does not exist.");
+
+                _dbConn.SubmitChanges();
+            }
+
+            if (flag)
             {
                 MainWindow mw = new MainWindow();
                 mw.Show();
                 this.Close();
             }
-            else if (!Credentials(tbName.Text, pbPass.Password))
-                MessageBox.Show("Incorrect Credentials... Try Again...");
-            else
-                MessageBox.Show("Input Your Credentials First.");
         }
 
        

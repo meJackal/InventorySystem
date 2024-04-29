@@ -7,19 +7,19 @@
         mc:Ignorable="d"
         Title="LogInPage" Height="450" Width="800">
     <Grid Background="#87CEEB">
-        <Label Content="PET SHOP" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="60"
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="780"/>
+        <Label Content="PET SHOP" HorizontalAlignment="Left" Margin="382,23,0,0" VerticalAlignment="Top" FontSize="60"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="348" Height="115"/>
 
-        <Label Content="Username :" Margin="248,154,402,0" FontSize="20" Height="40"
+        <Label Content="Username :" Margin="382,166,294,0" FontSize="20" Height="51"
                VerticalContentAlignment="Center" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbName" Margin="402,159,248,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15" Height="30" VerticalContentAlignment="Center" RenderTransformOrigin="0.775,0.619"/>
+        <TextBox x:Name="tbName" Margin="521,171,50,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15" Height="38" VerticalContentAlignment="Center" RenderTransformOrigin="0.775,0.619"/>
 
-        <Label Content="Password :" Margin="248,212,402,0" FontSize="20" Height="40"
+        <Label Content="Password :" Margin="382,239,294,0" FontSize="20" Height="51"
                 VerticalContentAlignment="Center" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="pbPass" Margin="402,217,248,0" VerticalAlignment="Top" FontSize="15" Height="30" VerticalContentAlignment="Center" RenderTransformOrigin="0.775,0.619" 
+        <PasswordBox x:Name="pbPass" Margin="521,245,50,0" VerticalAlignment="Top" FontSize="15" Height="39" VerticalContentAlignment="Center" RenderTransformOrigin="0.775,0.619" 
                 PasswordChar="*"/>
 
-        <Button x:Name="btnLogIn" Content="LogIn" Margin="248,290,248,0" FontSize="20" Click="btnLogIn_Click" Height="40" 
+        <Button x:Name="btnLogIn" Content="LogIn" Margin="418,330,106,0" FontSize="20" Click="btnLogIn_Click" Height="51" 
                 VerticalAlignment="Top"/>
 
     </Grid>

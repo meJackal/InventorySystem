@@ -7,14 +7,19 @@
         mc:Ignorable="d"
         Title="UpdatePage" Height="450" Width="800">
     <Grid Background="#87CEEB">
-        <Label x:Name="lblImage" HorizontalAlignment="Left" Margin="20,20,0,20"  Width="300"
-               BorderBrush="Black" BorderThickness="2"/>
 
-        <TextBox x:Name="tbName" Margin="400,121,160,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+        <TextBox x:Name="tbName" Margin="440,82,120,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
                  FontSize="15" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="tbQty" Margin="400,187,160,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+        <ComboBox x:Name="cmbType" Margin="440,117,120,0" VerticalAlignment="Top" Height="30"
+                  FontSize="15" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="DOG"/>
+            <ComboBoxItem Content="CAT"/>
+            <ComboBoxItem Content="SUPPLIES"/>
+        </ComboBox>
+
+        <TextBox x:Name="tbQty" Margin="440,152,120,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
                  FontSize="15" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="tbPrice" Margin="400,257,160,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+        <TextBox x:Name="tbPrice" Margin="440,187,120,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
                  FontSize="15" VerticalContentAlignment="Center"/>
 
         <Button x:Name="btnUpdate" Margin="440,325,200,0" Content="Save Changes"
@@ -22,5 +27,8 @@
                 FontSize="15" Height="32" VerticalAlignment="Top"/>
 
         <Button x:Name="btnBack" Content="Back" Margin="0,10,10,0" Click="btnBack_Click" HorizontalAlignment="Right" Width="100" Height="44" VerticalAlignment="Top" />
+
+        <Image x:Name="ImageDisplay" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Margin="69,97,0,0"/>
+        <Button x:Name="btnImage" Content="Choose Image" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,387,0,0"/>
     </Grid>
 </Window>
