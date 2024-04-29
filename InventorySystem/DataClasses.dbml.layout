@@ -14,7 +14,7 @@
         <elementListCompartment Id="b9bc6f3f-3451-4286-bcab-87eddbe9267a" absoluteBounds="2.2649999999999997, 2.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="dce1f59a-05d9-40a7-8279-8e842144dd70" absoluteBounds="8.75, 2.75, 2, 2.5401025390625005">
+    <classShape Id="dce1f59a-05d9-40a7-8279-8e842144dd70" absoluteBounds="8.75, 2.75, 2, 2.5401025390624996">
       <DataClassMoniker Name="/DataClasses1DataContext/inventory" />
       <nestedChildShapes>
         <elementListCompartment Id="d9c6238f-bef3-4d1a-8f99-c530bd2f4aca" absoluteBounds="8.765, 3.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
@@ -52,7 +52,7 @@
         <classShapeMoniker Id="dce1f59a-05d9-40a7-8279-8e842144dd70" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.25 : 5.41909912109375); (6 : 5.41909912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.25 : 5.41909912109375); (6 : 5.41909912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/staffRole/staffRole_staff" />
       <nodes>
         <classShapeMoniker Id="6e38fed0-1270-4b0d-b182-6df36cdea38e" />
@@ -66,7 +66,7 @@
         <classShapeMoniker Id="dce1f59a-05d9-40a7-8279-8e842144dd70" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.25 : 7.72199625651042); (7 : 7.72199625651042); (7 : 5.7131982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.25 : 7.72199625651042); (7 : 7.72199625651042); (7 : 5.7131982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/staffStatus/staffStatus_staff" />
       <nodes>
         <classShapeMoniker Id="9ca4b2de-32b3-4372-8ccd-406f1b5132a0" />

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace InventorySystem
@@ -11,12 +9,10 @@ namespace InventorySystem
     /// </summary>
     public partial class MainWindow : Window
     {
- 
+
         public MainWindow()
         {
             InitializeComponent();
-
-            DataContext = this;
         }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
