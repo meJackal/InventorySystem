@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Midterm" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-GB9EBM46\SQLEXPRESS;Initial Catalog=Midterm;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="InventorySystem.Properties.Settings" SettingsPropertyName="MidtermConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.InStock" Member="InStocks">
+    <Type Name="InStock">
+      <Column Name="InStock_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InStock_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="InStock_Inventory" Member="Inventories" ThisKey="InStock_ID" OtherKey="InStock_ID" Type="Inventory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Inventory" Member="Inventories">
+    <Type Name="Inventory">
+      <Column Name="Inventory_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Item_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="InStock_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AmountOfStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemType_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ItemCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Staff_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Inventory_Remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Date_Checked" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="InStock_Inventory" Member="InStock" ThisKey="InStock_ID" OtherKey="InStock_ID" Type="InStock" IsForeignKey="true" />
+      <Association Name="ItemType_Inventory" Member="ItemType" ThisKey="ItemType_ID" OtherKey="ItemType_ID" Type="ItemType" IsForeignKey="true" />
+      <Association Name="Staff_Inventory" Member="Staff" ThisKey="Staff_ID" OtherKey="Staff_ID" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemType" Member="ItemTypes">
+    <Type Name="ItemType">
+      <Column Name="ItemType_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemType_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ItemType_Inventory" Member="Inventories" ThisKey="ItemType_ID" OtherKey="ItemType_ID" Type="Inventory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StaffRole" Member="StaffRoles">
+    <Type Name="StaffRole">
+      <Column Name="StaffRole_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StaffRole_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="StaffRole_Staff" Member="Staffs" ThisKey="StaffRole_ID" OtherKey="StaffRole_ID" Type="Staff" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Staff" Member="Staffs">
+    <Type Name="Staff">
+      <Column Name="Staff_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Staff_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StaffRole_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StaffStatus_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Staff_Inventory" Member="Inventories" ThisKey="Staff_ID" OtherKey="Staff_ID" Type="Inventory" />
+      <Association Name="StaffRole_Staff" Member="StaffRole" ThisKey="StaffRole_ID" OtherKey="StaffRole_ID" Type="StaffRole" IsForeignKey="true" />
+      <Association Name="StaffStatus_Staff" Member="StaffStatus" ThisKey="StaffStatus_ID" OtherKey="StaffStatus_ID" Type="StaffStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StaffStatus" Member="StaffStatus">
+    <Type Name="StaffStatus">
+      <Column Name="StaffStatus_ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StaffStatus_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="StaffStatus_Staff" Member="Staffs" ThisKey="StaffStatus_ID" OtherKey="StaffStatus_ID" Type="Staff" />
+    </Type>
+  </Table>
+</Database>

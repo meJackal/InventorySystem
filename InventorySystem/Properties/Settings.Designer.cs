@@ -26,11 +26,11 @@ namespace InventorySystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-GB9EBM46\\SQLEXPRESS;Initial Catalog=InventoryManagement;Integr" +
-            "ated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
-        public string InventoryManagementConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-GB9EBM46\\SQLEXPRESS;Initial Catalog=Midterm;Integrated Securit" +
+            "y=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
+        public string MidtermConnectionString {
             get {
-                return ((string)(this["InventoryManagementConnectionString"]));
+                return ((string)(this["MidtermConnectionString"]));
             }
         }
     }

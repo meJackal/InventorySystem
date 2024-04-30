@@ -24,7 +24,7 @@ namespace InventorySystem
 
         private void inventoryListView_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var item = inventoryListView.SelectedItem as inventory;
+            var item = inventoryListView.SelectedItem as Inventory;
             if (item != null)
             {
                 UpdatePage up = new UpdatePage(item);
