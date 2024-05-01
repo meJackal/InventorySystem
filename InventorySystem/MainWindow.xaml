@@ -60,12 +60,13 @@
         </Button>
 
         <TextBox x:Name="tbSearch" Margin="120,21,350,0" FontSize="15" Height="30" VerticalAlignment="Top" 
-                 VerticalContentAlignment="Center"/>
+                 VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
 
         <ListView x:Name="inventoryListView" d:ItemsSource="{d:SampleData ItemCount=10}" 
                   FontSize="15" Margin="120,100,10,30" MouseDoubleClick="inventoryListView_DoubleClick"
-                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-            <ListView.View>
+                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                  FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold">
+            <ListView.View >
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Inventory_ID}" Width="50"/>
                     <GridViewColumn Header="NAME" DisplayMemberBinding="{Binding Inventory_Name}" Width="120"/>
