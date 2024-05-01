@@ -117,7 +117,7 @@
                 </Button.Template>
             </Button>
         </StackPanel>
-        <StackPanel Margin="150,110,0,64" Visibility="Visible">
+        <StackPanel Margin="150,110,0,19" Visibility="Visible">
             <ListView x:Name="inventoryListViewStaff" d:ItemsSource="{d:SampleData ItemCount=10}" 
               FontSize="15" Margin="0,0,10,30"
               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
