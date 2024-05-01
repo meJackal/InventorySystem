@@ -43,7 +43,7 @@ namespace InventorySystem
                 {
                     foreach (Staff s in selectResults)
                     {
-                        if (s.Staff_Password == pbPass.Password)
+                        if (s.Staff_Password == pbPass.Password || s.Staff_Password == tbPass.Text)
                         {
                             MessageBox.Show($"Login complete. {s.Staff_Name}");
                             flag = true;
