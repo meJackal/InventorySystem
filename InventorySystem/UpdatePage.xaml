@@ -26,17 +26,17 @@
         <ComboBox x:Name="cmbType" Margin="434,144,126,0" VerticalAlignment="Top" Height="30"
                   FontSize="15" VerticalContentAlignment="Center"
                   FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold">
-            <ComboBoxItem Content="AVAILABLE"/>
-            <ComboBoxItem Content="UNAVAILABLE"/>
+            <ComboBoxItem Content="DOG"/>
+            <ComboBoxItem Content="CAT"/>
+            <ComboBoxItem Content="SUPPLIES"/>
         </ComboBox>
 
         <Label Content="Availability : " HorizontalAlignment="Left" Margin="120,181,0,0" VerticalAlignment="Top" FontSize="20"
                FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
         <ComboBox x:Name="cmbAvailability" Margin="120,223,440,0" VerticalAlignment="Top" Height="30"
           FontSize="15" VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold">
-            <ComboBoxItem Content="DOG"/>
-            <ComboBoxItem Content="CAT"/>
-            <ComboBoxItem Content="SUPPLIES"/>
+            <ComboBoxItem Content="AVAILABLE"/>
+            <ComboBoxItem Content="UNAVAILABLE"/>
         </ComboBox>
 
         <Label Content="Quantity : " HorizontalAlignment="Left" Margin="434,181,0,0" VerticalAlignment="Top" FontSize="20" 
@@ -52,7 +52,7 @@
         <Button x:Name="btnUpdate" Margin="280,358,280,0" Content="Save Changes"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                 FontSize="15" Height="32" VerticalAlignment="Top"
-                FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+                FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" Click="btnUpdate_Click"/>
         
         <Button x:Name="btnDelete" Margin="690,392,10,0" Content="Delete"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"

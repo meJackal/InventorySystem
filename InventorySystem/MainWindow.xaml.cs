@@ -21,19 +21,18 @@ namespace InventorySystem
 
         private void loadInventory()
         {
-            var inventoryData = from i in _dbConn.Inventories
+            var inventoryData = from i in _dbConn.InventoryWithTypeDescriptions
                                 select new inventoryList
                                 {
                                     Inventory_ID = i.Inventory_ID,
                                     Inventory_Name = i.Item_Name,
-                                    Inventory_InStock = i.InStock_ID,
+                                    //Inventory_InStock = i.,
                                     Inventory_Quantity = i.AmountOfStock ?? 0,
-                                    Inventory_Type = i.ItemType_ID,
+                                    Inventory_Type = i.ItemType_Desc,
                                     Inventory_Price = i.ItemCost ?? 0,
                                     Inventory_Remarks = i.Inventory_Remarks,
                                     Inventory_Date = i.Date_Checked
                                 };
-
 
             inventoryListView.ItemsSource = inventoryData.ToList();
         }

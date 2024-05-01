@@ -136,6 +136,14 @@ namespace InventorySystem
 			}
 		}
 		
+		public System.Data.Linq.Table<StaffWithRoleAndStatus> StaffWithRoleAndStatus
+		{
+			get
+			{
+				return this.GetTable<StaffWithRoleAndStatus>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetInventoryByType")]
 		public ISingleResult<GetInventoryByTypeResult> GetInventoryByType([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ItemTypeID", DbType="VarChar(50)")] string itemTypeID)
 		{
@@ -1413,6 +1421,105 @@ namespace InventorySystem
 				if ((this._ItemType_Desc != value))
 				{
 					this._ItemType_Desc = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.StaffWithRoleAndStatus")]
+	public partial class StaffWithRoleAndStatus
+	{
+		
+		private string _Staff_ID;
+		
+		private string _Staff_Name;
+		
+		private string _Staff_Username;
+		
+		private string _StaffRole_Desc;
+		
+		private string _StaffStatus_Desc;
+		
+		public StaffWithRoleAndStatus()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_ID
+		{
+			get
+			{
+				return this._Staff_ID;
+			}
+			set
+			{
+				if ((this._Staff_ID != value))
+				{
+					this._Staff_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_Name
+		{
+			get
+			{
+				return this._Staff_Name;
+			}
+			set
+			{
+				if ((this._Staff_Name != value))
+				{
+					this._Staff_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Staff_Username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Staff_Username
+		{
+			get
+			{
+				return this._Staff_Username;
+			}
+			set
+			{
+				if ((this._Staff_Username != value))
+				{
+					this._Staff_Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffRole_Desc", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string StaffRole_Desc
+		{
+			get
+			{
+				return this._StaffRole_Desc;
+			}
+			set
+			{
+				if ((this._StaffRole_Desc != value))
+				{
+					this._StaffRole_Desc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffStatus_Desc", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string StaffStatus_Desc
+		{
+			get
+			{
+				return this._StaffStatus_Desc;
+			}
+			set
+			{
+				if ((this._StaffStatus_Desc != value))
+				{
+					this._StaffStatus_Desc = value;
 				}
 			}
 		}

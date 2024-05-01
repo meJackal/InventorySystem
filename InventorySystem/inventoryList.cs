@@ -8,15 +8,6 @@ namespace InventorySystem
 {
     public class inventoryList
     {
-        //public string Inventory_ID;
-        //public string Inventory_Name;
-        //public string Inventory_InStock;
-        //public int Inventory_Quantity;
-        //public string Inventory_Type;
-        //public int Inventory_Price;
-        //public string Inventory_Remarks;
-        //public DateTime Inventory_Date;
-
         public string Inventory_ID { get; set; }
         public string Inventory_Name { get; set; }
         public string Inventory_InStock { get; set; }

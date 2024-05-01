@@ -12,11 +12,11 @@
         </Grid.Background>
         <Rectangle Stroke="Black" Fill="#FFEEBFCA" HorizontalAlignment="Left" Width="130"/>
 
-        <Image Margin="10,0,0,324" Source="pack://application:,,,/Images/pawlogo.png" HorizontalAlignment="Left" Width="118"/>
+        <Image Margin="10,0,672,324" Source="pack://application:,,,/Images/pawlogo.png"/>
 
-        <Button x:Name="btnDogs" Margin="12,122,0,0" 
+        <Button x:Name="btnDogs" Margin="12,0,0,243" 
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="69" 
-                BorderBrush="Transparent" BorderThickness="0" VerticalAlignment="Top" RenderTransformOrigin="0.167,0.501" HorizontalAlignment="Left" Width="106">
+                BorderBrush="Transparent" BorderThickness="0" VerticalAlignment="Bottom" RenderTransformOrigin="0.167,0.501" HorizontalAlignment="Left" Width="106">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/dog.png"/>
             </Button.Background>
@@ -29,8 +29,8 @@
             </Button.Template>
         </Button>
 
-        <Button x:Name="btnCats" Margin="12,196,0,0"
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="69" VerticalAlignment="Top"
+        <Button x:Name="btnCats" Margin="12,0,0,169"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="69" VerticalAlignment="Bottom"
                 BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="106">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/cat.png"/>
@@ -44,8 +44,8 @@
             </Button.Template>
         </Button>
 
-        <Button x:Name="btnSupp" Margin="12,270,0,0" FontSize="18"
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="69" VerticalAlignment="Top"
+        <Button x:Name="btnSupp" Margin="12,0,0,95" FontSize="18"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="69" VerticalAlignment="Bottom"
                 BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="106">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/supp.png"/>
@@ -59,7 +59,7 @@
             </Button.Template>
         </Button>
 
-        <TextBox x:Name="tbSearch" Margin="150,34,320,0" FontSize="15" Height="30" VerticalAlignment="Top" 
+        <TextBox x:Name="tbSearch" Margin="150,21,320,0" FontSize="15" Height="30" VerticalAlignment="Top" 
                  VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
 
         <ListView x:Name="inventoryListView" d:ItemsSource="{d:SampleData ItemCount=10}" 
@@ -80,12 +80,12 @@
             </ListView.View>
         </ListView>
 
-
-        <Button x:Name="btnAdd" Margin="756,0,0,370" 
-        BorderBrush="Transparent" BorderThickness="0" 
-        HorizontalAlignment="Left" Width="34" Height="30" VerticalAlignment="Bottom">
+        <Label Content="Add Product" Margin="0,15,51,0" HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
+        <Button x:Name="btnAdd" Margin="0,15,10,0" 
+                BorderBrush="Transparent" BorderThickness="0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Width="64">
             <Button.Background>
-                <ImageBrush ImageSource="/Images/exit.png"/>
+                <ImageBrush ImageSource="/Images/8.png"/>
             </Button.Background>
             <Button.Template>
                 <ControlTemplate TargetType="Button">

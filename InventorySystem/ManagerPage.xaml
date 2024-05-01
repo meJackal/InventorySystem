@@ -6,8 +6,149 @@
         xmlns:local="clr-namespace:InventorySystem"
         mc:Ignorable="d"
         Title="ManagerPage" Height="450" Width="800">
-    <Grid Background="#87CEEB">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bg.jpg"/>
+        </Grid.Background>
+        <Rectangle Stroke="Black" Fill="#FFEEBFCA" HorizontalAlignment="Left" Width="130"/>
+
+        <Image Margin="10,0,672,324" Source="pack://application:,,,/Images/pawlogo.png"/>
+
+        <Button x:Name="btnDogs" Margin="12,0,0,243" 
+        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="69" 
+        BorderBrush="Transparent" BorderThickness="0" VerticalAlignment="Bottom" RenderTransformOrigin="0.167,0.501" HorizontalAlignment="Left" Width="106">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/dog.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="btnCats" Margin="12,0,0,169"
+        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="69" VerticalAlignment="Bottom"
+        BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="106">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/cat.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="btnSupp" Margin="12,0,0,95" FontSize="18"
+        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="69" VerticalAlignment="Bottom"
+        BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="106">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/supp.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <TextBox x:Name="tbSearch" Margin="150,21,320,0" FontSize="15" Height="30" VerticalAlignment="Top" 
+         VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+
+        <!--#region Inventory-->
+        <StackPanel Margin="650,0,0,355" Visibility="Collapsed">
+            <Label Content="Add Product" Margin="0,15,51,0" HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" HorizontalAlignment="Right" Width="100" Height="40" VerticalAlignment="Top"/>
+            <Button x:Name="btnAdd" Margin="0,-40,10,0" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Right" Width="64" Height="40" VerticalAlignment="Top">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/8.png"/>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="150,110,0,64" Visibility="Collapsed">
+            <ListView x:Name="inventoryListView" d:ItemsSource="{d:SampleData ItemCount=10}" 
+                      FontSize="15" Margin="0,0,10,30" MouseDoubleClick="inventoryListView_DoubleClick"
+                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                      FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold">
+                <ListView.View >
+                    <GridView>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Inventory_ID}" Width="50"/>
+                        <GridViewColumn Header="NAME" DisplayMemberBinding="{Binding Inventory_Name}" Width="120"/>
+                        <GridViewColumn Header="STOCK" DisplayMemberBinding="{Binding Inventory_InStock}" Width="120"/>
+                        <GridViewColumn Header="PRODUCT TYPE" DisplayMemberBinding="{Binding Inventory_Type}" Width="120"/>
+                        <GridViewColumn Header="QUANTITY" DisplayMemberBinding="{Binding Inventory_Quantity}" Width="120"/>
+                        <GridViewColumn Header="PRICE" DisplayMemberBinding="{Binding Inventory_Price}" Width="60"/>
+                        <GridViewColumn Header="DATE CHECKED" DisplayMemberBinding="{Binding Inventory_Date}" Width="120"/>
+                        <GridViewColumn Header="REMARKS" DisplayMemberBinding="{Binding Inventory_Remarks}" Width="120"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <!--#endregion-->
+
+        <!--#region Staff-->
+        <StackPanel Margin="650,0,0,355" Visibility="Visible">
+            <Label Content="Add Staff" Margin="0,15,51,0" HorizontalContentAlignment="Center"
+           VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" HorizontalAlignment="Right" Width="100" Height="40" VerticalAlignment="Top"/>
+            <Button x:Name="btnAddStaff" Margin="0,-40,10,0" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Right" Width="64" Height="40" VerticalAlignment="Top">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/8.png"/>
+                </Button.Background>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="150,110,0,64" Visibility="Visible">
+            <ListView x:Name="inventoryListViewStaff" d:ItemsSource="{d:SampleData ItemCount=10}" 
+              FontSize="15" Margin="0,0,10,30"
+              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+              FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold">
+                <ListView.View >
+                    <GridView>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Staff_ID}" Width="50"/>
+                        <GridViewColumn Header="NAME" DisplayMemberBinding="{Binding Staff_Name}" Width="150"/>
+                        <GridViewColumn Header="USERNAME" DisplayMemberBinding="{Binding Staff_Username}" Width="150"/>
+                        <GridViewColumn Header="STAFF ROLE" DisplayMemberBinding="{Binding StaffRole_Desc}" Width="150"/>
+                        <GridViewColumn Header="STAFF STATUS" DisplayMemberBinding="{Binding StaffStatus_Desc}" Width="150"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <!--#endregion-->
         
-        
+        <Button x:Name="btnLogOut" Margin="48,0,0,20" 
+        BorderBrush="Transparent" BorderThickness="0" 
+        Click="btnLogOut_Click" HorizontalAlignment="Left" Width="34" Height="35" VerticalAlignment="Bottom">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/exit.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
     </Grid>
 </Window>

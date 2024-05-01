@@ -68,6 +68,15 @@
       <Column Name="ItemType_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.StaffWithRoleAndStatus" Member="StaffWithRoleAndStatus">
+    <Type Name="StaffWithRoleAndStatus">
+      <Column Name="Staff_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Staff_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StaffRole_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StaffStatus_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.GetInventoryByType" Method="GetInventoryByType">
     <Parameter Name="ItemTypeID" Parameter="itemTypeID" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="GetInventoryByTypeResult">
