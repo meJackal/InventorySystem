@@ -7,29 +7,46 @@
         mc:Ignorable="d"
         Title="UpdatePage" Height="450" Width="800">
     <Grid Background="#87CEEB">
-        
-        <Label Content="Name : " HorizontalAlignment="Left" Margin="32,75,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="tbName" Margin="32,117,528,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+        <Image Margin="2,2,692,331" Source="pack://application:,,,/Images/pawlogo.png"/>
+
+        <Label Content="PawWorld" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" FontSize="50"/>
+
+        <Label Content="Name : " HorizontalAlignment="Left" Margin="120,102,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbName" Margin="120,144,440,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
                  FontSize="15" VerticalContentAlignment="Center"/>
-        
-        <ComboBox x:Name="cmbType" Margin="32,181,528,0" VerticalAlignment="Top" Height="30"
+
+        <Label Content="Type : " HorizontalAlignment="Left" Margin="434,102,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="cmbType" Margin="434,144,126,0" VerticalAlignment="Top" Height="30"
                   FontSize="15" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="AVAILABLE"/>
+            <ComboBoxItem Content="UNAVAILABLE"/>
+        </ComboBox>
+
+        <Label Content="Availability : " HorizontalAlignment="Left" Margin="120,181,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ComboBox x:Name="cmbAvailability" Margin="120,223,440,0" VerticalAlignment="Top" Height="30"
+          FontSize="15" VerticalContentAlignment="Center">
             <ComboBoxItem Content="DOG"/>
             <ComboBoxItem Content="CAT"/>
             <ComboBoxItem Content="SUPPLIES"/>
         </ComboBox>
 
-        <TextBox x:Name="tbQty" Margin="440,152,120,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
-                 FontSize="15" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="tbPrice" Margin="440,187,120,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+        <Label Content="Quantity : " HorizontalAlignment="Left" Margin="434,181,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbQty" Margin="434,223,126,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
                  FontSize="15" VerticalContentAlignment="Center"/>
 
-        <Button x:Name="btnUpdate" Margin="440,325,200,0" Content="Save Changes"
+        <Label Content="Price : " HorizontalAlignment="Center" Margin="0,262,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbPrice" Margin="280,304,280,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+                 FontSize="15" VerticalContentAlignment="Center"/>
+
+        <Button x:Name="btnUpdate" Margin="280,358,280,0" Content="Save Changes"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                 FontSize="15" Height="32" VerticalAlignment="Top"/>
-
+        <Button x:Name="btnDelete" Margin="690,392,10,0" Content="Delete"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                FontSize="15" Height="32" VerticalAlignment="Top"/>
         <Button x:Name="btnBack" Content="Back" Margin="0,10,10,0" Click="btnBack_Click" HorizontalAlignment="Right" Width="100" Height="44" VerticalAlignment="Top" />
-       
+
+
 
     </Grid>
 </Window>

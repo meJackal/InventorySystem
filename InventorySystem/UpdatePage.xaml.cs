@@ -39,17 +39,5 @@ namespace InventorySystem
             mainWindow.Show();
             this.Close();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog filepath = new OpenFileDialog();
-            filepath.Filter = "Image files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png|All files (*.*)|*.*";
-            if (filepath.ShowDialog() == true)
-            {
-                string selectedFilePath = filepath.FileName;
-                BitmapImage bitmap = new BitmapImage(new Uri(selectedFilePath));
-                ImageDisplay.Source = bitmap;
-            }
-        }
     }
 }

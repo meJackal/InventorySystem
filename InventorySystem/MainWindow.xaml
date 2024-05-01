@@ -6,11 +6,13 @@
         xmlns:local="clr-namespace:InventorySystem"
         mc:Ignorable="d"
         Title="MAINPAGE" Height="450" Width="800">
-    <Grid Background="#87CEEB">
+    <Grid >
+        <Grid.Background>
+        <ImageBrush ImageSource="/Images/bg.jpg"/>
+        </Grid.Background>
+        <Rectangle Stroke="Black" Fill="#FFEEBFCA" HorizontalAlignment="Left" Width="110"/>
 
-        <Rectangle Stroke="Black" Margin="0,0,690,0" Fill="#FFEEBFCA"/>
-        
-        <Image Margin="2,2,692,331" Source="pack://application:,,,/Images/pawlogo.png"/>
+        <Image Margin="2,2,0,331" Source="pack://application:,,,/Images/pawlogo.png" HorizontalAlignment="Left" Width="106"/>
 
         <Button x:Name="btnDogs" Margin="24,121,0,0" 
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="60" 
@@ -92,6 +94,6 @@
             </Button.Template>
         </Button>
 
-        
+
     </Grid>
 </Window>
