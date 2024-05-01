@@ -8,7 +8,11 @@
         Title="MAINPAGE" Height="450" Width="800">
     <Grid Background="#87CEEB">
 
-        <Button x:Name="btnDogs" Margin="10,117,0,0" 
+        <Rectangle Stroke="Black" Margin="0,0,690,0" Fill="#FFEEBFCA"/>
+        
+        <Image Margin="2,2,692,331" Source="pack://application:,,,/Images/pawlogo.png"/>
+
+        <Button x:Name="btnDogs" Margin="24,121,0,0" 
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="60" 
                 BorderBrush="Transparent" BorderThickness="0" VerticalAlignment="Top" RenderTransformOrigin="0.167,0.501" HorizontalAlignment="Left" Width="60">
             <Button.Background>
@@ -23,7 +27,7 @@
             </Button.Template>
         </Button>
 
-        <Button x:Name="btnCats" Margin="10,182,0,0"
+        <Button x:Name="btnCats" Margin="24,197,0,0"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="60" VerticalAlignment="Top"
                 BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="60">
             <Button.Background>
@@ -38,7 +42,7 @@
             </Button.Template>
         </Button>
 
-        <Button x:Name="btnSupp" Margin="10,247,0,0" FontSize="18"
+        <Button x:Name="btnSupp" Margin="24,267,0,0" FontSize="18"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="60" VerticalAlignment="Top"
                 BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="60">
             <Button.Background>
@@ -53,29 +57,29 @@
             </Button.Template>
         </Button>
 
-        <TextBox x:Name="tbSearch" Margin="90,10,350,0" FontSize="15" Height="30" VerticalAlignment="Top" 
+        <TextBox x:Name="tbSearch" Margin="120,21,350,0" FontSize="15" Height="30" VerticalAlignment="Top" 
                  VerticalContentAlignment="Center"/>
 
-        <ListView x:Name="inventoryListView" ItemsSource="{Binding InventoryList}" d:ItemsSource="{d:SampleData ItemCount=10}" 
-                  FontSize="12" Margin="90,57,10,26" MouseDoubleClick="inventoryListView_DoubleClick">
+        <ListView x:Name="inventoryListView" d:ItemsSource="{d:SampleData ItemCount=10}" 
+                  FontSize="15" Margin="120,100,10,30" MouseDoubleClick="inventoryListView_DoubleClick"
+                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="50"/>
-                    <GridViewColumn Header="NAME" DisplayMemberBinding="{Binding Name}" Width="120"/>
-                    <GridViewColumn Header="INSTOCK" DisplayMemberBinding="{Binding Availability}" Width="120"/>
-                    <GridViewColumn Header="PRODUCT TYPE" DisplayMemberBinding="{Binding Type}" Width="120"/>
-                    <GridViewColumn Header="QUANTITY" DisplayMemberBinding="{Binding Quantity}" Width="120"/>
-                    <GridViewColumn Header="PRICE" DisplayMemberBinding="{Binding Price}" Width="60"/>
-                    <GridViewColumn Header="UPDATED BY" DisplayMemberBinding="{Binding UpdatedBy}" Width="120"/>
-                    <GridViewColumn Header="DATE CHECKED" DisplayMemberBinding="{Binding dt}" Width="120"/>
-                    <GridViewColumn Header="REMARKS" DisplayMemberBinding="{Binding Remark}" Width="120"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Inventory_ID}" Width="50"/>
+                    <GridViewColumn Header="NAME" DisplayMemberBinding="{Binding Inventory_Name}" Width="120"/>
+                    <GridViewColumn Header="STOCK" DisplayMemberBinding="{Binding Inventory_InStock}" Width="120"/>
+                    <GridViewColumn Header="PRODUCT TYPE" DisplayMemberBinding="{Binding Inventory_Type}" Width="120"/>
+                    <GridViewColumn Header="QUANTITY" DisplayMemberBinding="{Binding Inventory_Quantity}" Width="120"/>
+                    <GridViewColumn Header="PRICE" DisplayMemberBinding="{Binding Inventory_Price}" Width="60"/>
+                    <GridViewColumn Header="DATE CHECKED" DisplayMemberBinding="{Binding Inventory_Date}" Width="120"/>
+                    <GridViewColumn Header="REMARKS" DisplayMemberBinding="{Binding Inventory_Remarks}" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button x:Name="btnLogOut" Margin="20,0,0,26" 
+        <Button x:Name="btnLogOut" Margin="32,0,0,30" 
                 BorderBrush="Transparent" BorderThickness="0" 
-                Click="btnLogOut_Click" HorizontalAlignment="Left" Width="35" Height="35" VerticalAlignment="Bottom">
+                Click="btnLogOut_Click" HorizontalAlignment="Left" Width="36" Height="35" VerticalAlignment="Bottom">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/exit.png"/>
             </Button.Background>
@@ -87,5 +91,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+
+        
     </Grid>
 </Window>

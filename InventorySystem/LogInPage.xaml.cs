@@ -45,10 +45,21 @@ namespace InventorySystem
                     {
                         if (s.Staff_Password == pbPass.Password)
                         {
-                            MessageBox.Show("Login complete.");
-
+                            MessageBox.Show($"Login complete. {s.Staff_Name}");
                             flag = true;
-                            break;
+
+                            if (s.StaffRole_ID == "SR1")
+                            {
+                                ManagerPage mp = new ManagerPage();
+                                mp.Show();
+                            }
+                            else if (s.StaffRole_ID == "SR2")
+                            {
+                                MainWindow mw = new MainWindow();
+                                mw.Show();
+                            }
+
+                            this.Close();
                         }
                         else
                             MessageBox.Show("The password is incorrect.");
@@ -58,13 +69,6 @@ namespace InventorySystem
                     MessageBox.Show("The username does not exist.");
 
                 _dbConn.SubmitChanges();
-            }
-
-            if (flag)
-            {
-                MainWindow mw = new MainWindow();
-                mw.Show();
-                this.Close();
             }
         }
 

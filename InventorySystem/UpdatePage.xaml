@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="UpdatePage" Height="450" Width="800">
     <Grid Background="#87CEEB">
-
-        <TextBox x:Name="tbName" Margin="440,82,120,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+        
+        <Label Content="Name : " HorizontalAlignment="Left" Margin="32,75,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbName" Margin="32,117,528,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
                  FontSize="15" VerticalContentAlignment="Center"/>
-        <ComboBox x:Name="cmbType" Margin="440,117,120,0" VerticalAlignment="Top" Height="30"
+        
+        <ComboBox x:Name="cmbType" Margin="32,181,528,0" VerticalAlignment="Top" Height="30"
                   FontSize="15" VerticalContentAlignment="Center">
             <ComboBoxItem Content="DOG"/>
             <ComboBoxItem Content="CAT"/>
@@ -27,8 +29,7 @@
                 FontSize="15" Height="32" VerticalAlignment="Top"/>
 
         <Button x:Name="btnBack" Content="Back" Margin="0,10,10,0" Click="btnBack_Click" HorizontalAlignment="Right" Width="100" Height="44" VerticalAlignment="Top" />
+       
 
-        <Image x:Name="ImageDisplay" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Margin="69,97,0,0"/>
-        <Button x:Name="btnImage" Content="Choose Image" Click="Button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,387,0,0"/>
     </Grid>
 </Window>

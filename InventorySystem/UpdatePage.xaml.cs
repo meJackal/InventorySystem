@@ -20,9 +20,9 @@ namespace InventorySystem
     /// </summary>
     public partial class UpdatePage : Window
     {
-        private Inventory selectedItem;
+        private inventoryList selectedItem;
 
-        public UpdatePage(Inventory item)
+        public UpdatePage(inventoryList item)
         {
             InitializeComponent();
             
