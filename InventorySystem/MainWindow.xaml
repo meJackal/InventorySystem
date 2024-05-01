@@ -12,7 +12,7 @@
         </Grid.Background>
         <Rectangle Stroke="Black" Fill="#FFEEBFCA" HorizontalAlignment="Left" Width="130"/>
 
-        <Image Margin="10,-6,0,330" Source="pack://application:,,,/Images/pawlogo.png" HorizontalAlignment="Left" Width="118"/>
+        <Image Margin="10,0,0,324" Source="pack://application:,,,/Images/pawlogo.png" HorizontalAlignment="Left" Width="118"/>
 
         <Button x:Name="btnDogs" Margin="12,122,0,0" 
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="69" 
