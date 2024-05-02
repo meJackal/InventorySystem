@@ -83,7 +83,7 @@
         <Label Content="Add Product" Margin="0,15,51,0" HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
         <Button x:Name="btnAdd" Margin="0,15,10,0" 
-                BorderBrush="Transparent" BorderThickness="0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Width="64">
+                BorderBrush="Transparent" BorderThickness="0" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Width="64" Click="btnAdd_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/8.png"/>
             </Button.Background>

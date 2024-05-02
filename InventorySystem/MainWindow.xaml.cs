@@ -54,5 +54,12 @@ namespace InventorySystem
             logIn.Show();
             this.Close();
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddProduct addProduct = new AddProduct();
+            addProduct.Show();
+            this.Close();
+        }
     }
 }
