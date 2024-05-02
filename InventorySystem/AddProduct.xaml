@@ -1,0 +1,63 @@
+﻿<Window x:Class="InventorySystem.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventorySystem"
+        mc:Ignorable="d"
+        Title="AddProduct" Height="450" Width="800">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/bg.jpg"/>
+        </Grid.Background>
+        <Image Margin="2,2,692,331" Source="pack://application:,,,/Images/pawlogo.png"/>
+
+        <Label Content="PawWorld" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" FontSize="50"
+               FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+
+        <Label Content="Name : " HorizontalAlignment="Left" Margin="120,102,0,0" VerticalAlignment="Top" FontSize="20"
+               FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+        <TextBox x:Name="tbName" Margin="120,144,440,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+                 FontSize="15" VerticalContentAlignment="Center"
+                 FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+
+        <Label Content="Type : " HorizontalAlignment="Left" Margin="434,102,0,0" VerticalAlignment="Top" FontSize="20"
+               FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+        <ComboBox x:Name="cmbType" Margin="434,144,126,0" VerticalAlignment="Top" Height="30"
+                  FontSize="15" VerticalContentAlignment="Center"
+                  FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold">
+            <ComboBoxItem Content="DOG"/>
+            <ComboBoxItem Content="CAT"/>
+            <ComboBoxItem Content="SUPPLIES"/>
+        </ComboBox>
+
+        <Label Content="Availability : " HorizontalAlignment="Left" Margin="120,181,0,0" VerticalAlignment="Top" FontSize="20"
+               FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+        <ComboBox x:Name="cmbAvailability" Margin="120,223,440,0" VerticalAlignment="Top" Height="30"
+          FontSize="15" VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold">
+            <ComboBoxItem Content="AVAILABLE"/>
+            <ComboBoxItem Content="UNAVAILABLE"/>
+        </ComboBox>
+
+        <Label Content="Quantity : " HorizontalAlignment="Left" Margin="434,181,0,0" VerticalAlignment="Top" FontSize="20" 
+               FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+        <TextBox x:Name="tbQty" Margin="434,223,126,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+                 FontSize="15" VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+
+        <Label Content="Price : " HorizontalAlignment="Center" Margin="0,262,0,0" VerticalAlignment="Top" FontSize="20"
+               FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+        <TextBox x:Name="tbPrice" Margin="280,304,280,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+                 FontSize="15" VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+
+        <Button x:Name="btnAddProduct" Margin="280,358,280,0" Content="Add Product"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                FontSize="15" Height="32" VerticalAlignment="Top"
+                FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" Click="btnAddProduct_Click"/>
+
+        <Button x:Name="btnBack" Content="Back" Margin="0,10,10,0" Click="btnBack_Click" HorizontalAlignment="Right" Width="100" Height="44" 
+                VerticalAlignment="Top" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+
+
+
+    </Grid>
+</Window>

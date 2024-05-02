@@ -69,6 +69,9 @@
       <DependentUpon>ManagerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="staffList.cs" />
+    <Compile Include="AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdatePage.xaml.cs">
       <DependentUpon>UpdatePage.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
     <Page Include="ManagerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddProduct.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UpdatePage.xaml">
       <SubType>Designer</SubType>
