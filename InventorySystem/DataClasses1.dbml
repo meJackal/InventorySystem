@@ -57,17 +57,6 @@
       <Association Name="StaffStatus_Staff" Member="Staffs" ThisKey="StaffStatus_ID" OtherKey="StaffStatus_ID" Type="Staff" />
     </Type>
   </Table>
-  <Table Name="dbo.InventoryWithTypeDescription" Member="InventoryWithTypeDescriptions">
-    <Type Name="InventoryWithTypeDescription">
-      <Column Name="Inventory_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Item_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="AmountOfStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ItemCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Inventory_Remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Date_Checked" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ItemType_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.StaffWithRoleAndStatus" Member="StaffWithRoleAndStatus">
     <Type Name="StaffWithRoleAndStatus">
       <Column Name="Staff_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
@@ -75,6 +64,18 @@
       <Column Name="Staff_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="StaffRole_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="StaffStatus_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InventoryWithTypeDescription" Member="InventoryWithTypeDescriptions">
+    <Type Name="InventoryWithTypeDescription">
+      <Column Name="Inventory_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Inventory_Remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Date_Checked" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ItemType_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AmountOfStock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Item_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="InStock_Desc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.GetInventoryByType" Method="GetInventoryByType">
@@ -101,6 +102,19 @@
     <Parameter Name="StaffID" Parameter="staffID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="NewName" Parameter="newName" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="NewUsername" Parameter="newUsername" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NewRole" Parameter="newRole" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NewStatus" Parameter="newStatus" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateInventoryInfo" Method="UpdateInventoryInfo">
+    <Parameter Name="Inventory_ID" Parameter="inventory_ID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NewName" Parameter="newName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NewType" Parameter="newType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NewQty" Parameter="newQty" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NewRemark" Parameter="newRemark" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NewDate" Parameter="newDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NewPrice" Parameter="newPrice" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NewStock" Parameter="newStock" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

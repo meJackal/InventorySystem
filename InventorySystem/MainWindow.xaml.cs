@@ -10,12 +10,17 @@ namespace InventorySystem
     public partial class MainWindow : Window
     {
         DataClasses1DataContext _dbConn = null;
+        private int _appLogIn;
 
-        public MainWindow()
+        public MainWindow(int appLogIn)
         {
             InitializeComponent();
+
+            _appLogIn = appLogIn;
+
             _dbConn = new DataClasses1DataContext(
                 Properties.Settings.Default.MidtermConnectionString);
+
             loadInventory();
         }
 
@@ -26,7 +31,7 @@ namespace InventorySystem
                                 {
                                     Inventory_ID = i.Inventory_ID,
                                     Inventory_Name = i.Item_Name,
-                                    //Inventory_InStock = i.,
+                                    Inventory_InStock = i.InStock_Desc,
                                     Inventory_Quantity = i.AmountOfStock ?? 0,
                                     Inventory_Type = i.ItemType_Desc,
                                     Inventory_Price = i.ItemCost ?? 0,
@@ -42,7 +47,7 @@ namespace InventorySystem
             var item = inventoryListView.SelectedItem as inventoryList;
             if (item != null)
             {
-                UpdatePage up = new UpdatePage(item);
+                UpdatePage up = new UpdatePage(item, _appLogIn);
                 up.Show();
                 this.Close();
             }
@@ -57,9 +62,76 @@ namespace InventorySystem
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddProduct addProduct = new AddProduct();
+            AddProduct addProduct = new AddProduct(_appLogIn);
             addProduct.Show();
             this.Close();
+        }
+
+        private void btnInventory_Click(object sender, RoutedEventArgs e)
+        {
+            loadInventory();
+        }
+
+        private void btnStaff_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Invalid Access to staff..");
+        }
+
+        private void btnDogs_Click(object sender, RoutedEventArgs e)
+        {
+            var dogs = from i in _dbConn.InventoryWithTypeDescriptions
+                       where i.ItemType_Desc == "Dog"
+                       select new inventoryList
+                       {
+                           Inventory_ID = i.Inventory_ID,
+                           Inventory_Name = i.Item_Name,
+                           Inventory_InStock = i.InStock_Desc,
+                           Inventory_Quantity = i.AmountOfStock ?? 0,
+                           Inventory_Type = i.ItemType_Desc,
+                           Inventory_Price = i.ItemCost ?? 0,
+                           Inventory_Remarks = i.Inventory_Remarks,
+                           Inventory_Date = i.Date_Checked
+                       };
+
+            inventoryListView.ItemsSource = dogs.ToList();
+        }
+
+        private void btnCats_Click(object sender, RoutedEventArgs e)
+        {
+            var cats = from i in _dbConn.InventoryWithTypeDescriptions
+                       where i.ItemType_Desc == "Cat"
+                       select new inventoryList
+                       {
+                           Inventory_ID = i.Inventory_ID,
+                           Inventory_Name = i.Item_Name,
+                           Inventory_InStock = i.InStock_Desc,
+                           Inventory_Quantity = i.AmountOfStock ?? 0,
+                           Inventory_Type = i.ItemType_Desc,
+                           Inventory_Price = i.ItemCost ?? 0,
+                           Inventory_Remarks = i.Inventory_Remarks,
+                           Inventory_Date = i.Date_Checked
+                       };
+
+            inventoryListView.ItemsSource = cats.ToList();
+        }
+
+        private void btnSupp_Click(object sender, RoutedEventArgs e)
+        {
+            var supp = from i in _dbConn.InventoryWithTypeDescriptions
+                       where i.ItemType_Desc == "Supplies"
+                       select new inventoryList
+                       {
+                           Inventory_ID = i.Inventory_ID,
+                           Inventory_Name = i.Item_Name,
+                           Inventory_InStock = i.InStock_Desc,
+                           Inventory_Quantity = i.AmountOfStock ?? 0,
+                           Inventory_Type = i.ItemType_Desc,
+                           Inventory_Price = i.ItemCost ?? 0,
+                           Inventory_Remarks = i.Inventory_Remarks,
+                           Inventory_Date = i.Date_Checked
+                       };
+
+            inventoryListView.ItemsSource = supp.ToList();
         }
     }
 }

@@ -15,14 +15,14 @@
                FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"
                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="368" Height="115"/>
 
-        <Label Content="Username :" Margin="373,172,293,0" FontSize="25" Height="38" 
+        <Label Content="Username :" Margin="365,172,284,0" FontSize="25" Height="38" 
                FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"
                VerticalContentAlignment="Center" VerticalAlignment="Top"/>
         <TextBox x:Name="tbName" Margin="521,172,50,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="15" Height="38"
                  FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"
                  VerticalContentAlignment="Center" RenderTransformOrigin="0.775,0.619"/>
 
-        <Label Content="Password :" Margin="373,246,293,0" FontSize="25" Height="39"
+        <Label Content="Password :" Margin="365,246,284,0" FontSize="25" Height="39"
                FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"
                 VerticalContentAlignment="Center" VerticalAlignment="Top"/>
         <PasswordBox x:Name="pbPass" Margin="521,245,50,0" VerticalAlignment="Top" FontSize="15" Height="39" VerticalContentAlignment="Center" RenderTransformOrigin="0.775,0.619" 
@@ -43,8 +43,7 @@
             </Button.Template>
         </Button>
 
-        <Button x:Name="btnLogIn" Content="LogIn" Margin="428,314,96,0" FontSize="25" Click="btnLogIn_Click" Height="50" 
-                VerticalAlignment="Top" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold">
+        <Button x:Name="btnLogIn" Content="LogIn" Margin="428,314,96,0" FontSize="25" Click="btnLogIn_Click" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" Height="50" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>

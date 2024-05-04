@@ -128,19 +128,19 @@ namespace InventorySystem
 			}
 		}
 		
-		public System.Data.Linq.Table<InventoryWithTypeDescription> InventoryWithTypeDescriptions
-		{
-			get
-			{
-				return this.GetTable<InventoryWithTypeDescription>();
-			}
-		}
-		
 		public System.Data.Linq.Table<StaffWithRoleAndStatus> StaffWithRoleAndStatus
 		{
 			get
 			{
 				return this.GetTable<StaffWithRoleAndStatus>();
+			}
+		}
+		
+		public System.Data.Linq.Table<InventoryWithTypeDescription> InventoryWithTypeDescriptions
+		{
+			get
+			{
+				return this.GetTable<InventoryWithTypeDescription>();
 			}
 		}
 		
@@ -159,9 +159,16 @@ namespace InventorySystem
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateStaffInfo")]
-		public int UpdateStaffInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StaffID", DbType="VarChar(50)")] string staffID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewName", DbType="VarChar(50)")] string newName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewUsername", DbType="VarChar(50)")] string newUsername)
+		public int UpdateStaffInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StaffID", DbType="VarChar(50)")] string staffID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewName", DbType="VarChar(50)")] string newName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewUsername", DbType="VarChar(50)")] string newUsername, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewRole", DbType="VarChar(50)")] string newRole, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewStatus", DbType="VarChar(50)")] string newStatus)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), staffID, newName, newUsername);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), staffID, newName, newUsername, newRole, newStatus);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateInventoryInfo")]
+		public int UpdateInventoryInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Inventory_ID", DbType="VarChar(50)")] string inventory_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewName", DbType="VarChar(50)")] string newName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewType", DbType="VarChar(50)")] string newType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewQty", DbType="Int")] System.Nullable<int> newQty, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewRemark", DbType="VarChar(50)")] string newRemark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewDate", DbType="Date")] System.Nullable<System.DateTime> newDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewPrice", DbType="Int")] System.Nullable<int> newPrice, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NewStock", DbType="VarChar(50)")] string newStock)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), inventory_ID, newName, newType, newQty, newRemark, newDate, newPrice, newStock);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -1291,141 +1298,6 @@ namespace InventorySystem
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InventoryWithTypeDescription")]
-	public partial class InventoryWithTypeDescription
-	{
-		
-		private string _Inventory_ID;
-		
-		private string _Item_Name;
-		
-		private System.Nullable<int> _AmountOfStock;
-		
-		private System.Nullable<int> _ItemCost;
-		
-		private string _Inventory_Remarks;
-		
-		private System.DateTime _Date_Checked;
-		
-		private string _ItemType_Desc;
-		
-		public InventoryWithTypeDescription()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Inventory_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Inventory_ID
-		{
-			get
-			{
-				return this._Inventory_ID;
-			}
-			set
-			{
-				if ((this._Inventory_ID != value))
-				{
-					this._Inventory_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Item_Name
-		{
-			get
-			{
-				return this._Item_Name;
-			}
-			set
-			{
-				if ((this._Item_Name != value))
-				{
-					this._Item_Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountOfStock", DbType="Int")]
-		public System.Nullable<int> AmountOfStock
-		{
-			get
-			{
-				return this._AmountOfStock;
-			}
-			set
-			{
-				if ((this._AmountOfStock != value))
-				{
-					this._AmountOfStock = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCost", DbType="Int")]
-		public System.Nullable<int> ItemCost
-		{
-			get
-			{
-				return this._ItemCost;
-			}
-			set
-			{
-				if ((this._ItemCost != value))
-				{
-					this._ItemCost = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Inventory_Remarks", DbType="VarChar(50)")]
-		public string Inventory_Remarks
-		{
-			get
-			{
-				return this._Inventory_Remarks;
-			}
-			set
-			{
-				if ((this._Inventory_Remarks != value))
-				{
-					this._Inventory_Remarks = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date_Checked", DbType="Date NOT NULL")]
-		public System.DateTime Date_Checked
-		{
-			get
-			{
-				return this._Date_Checked;
-			}
-			set
-			{
-				if ((this._Date_Checked != value))
-				{
-					this._Date_Checked = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemType_Desc", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ItemType_Desc
-		{
-			get
-			{
-				return this._ItemType_Desc;
-			}
-			set
-			{
-				if ((this._ItemType_Desc != value))
-				{
-					this._ItemType_Desc = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.StaffWithRoleAndStatus")]
 	public partial class StaffWithRoleAndStatus
 	{
@@ -1520,6 +1392,159 @@ namespace InventorySystem
 				if ((this._StaffStatus_Desc != value))
 				{
 					this._StaffStatus_Desc = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InventoryWithTypeDescription")]
+	public partial class InventoryWithTypeDescription
+	{
+		
+		private string _Inventory_ID;
+		
+		private System.Nullable<int> _ItemCost;
+		
+		private string _Inventory_Remarks;
+		
+		private System.DateTime _Date_Checked;
+		
+		private string _ItemType_Desc;
+		
+		private System.Nullable<int> _AmountOfStock;
+		
+		private string _Item_Name;
+		
+		private string _InStock_Desc;
+		
+		public InventoryWithTypeDescription()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Inventory_ID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Inventory_ID
+		{
+			get
+			{
+				return this._Inventory_ID;
+			}
+			set
+			{
+				if ((this._Inventory_ID != value))
+				{
+					this._Inventory_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemCost", DbType="Int")]
+		public System.Nullable<int> ItemCost
+		{
+			get
+			{
+				return this._ItemCost;
+			}
+			set
+			{
+				if ((this._ItemCost != value))
+				{
+					this._ItemCost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Inventory_Remarks", DbType="VarChar(50)")]
+		public string Inventory_Remarks
+		{
+			get
+			{
+				return this._Inventory_Remarks;
+			}
+			set
+			{
+				if ((this._Inventory_Remarks != value))
+				{
+					this._Inventory_Remarks = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date_Checked", DbType="Date NOT NULL")]
+		public System.DateTime Date_Checked
+		{
+			get
+			{
+				return this._Date_Checked;
+			}
+			set
+			{
+				if ((this._Date_Checked != value))
+				{
+					this._Date_Checked = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemType_Desc", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ItemType_Desc
+		{
+			get
+			{
+				return this._ItemType_Desc;
+			}
+			set
+			{
+				if ((this._ItemType_Desc != value))
+				{
+					this._ItemType_Desc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountOfStock", DbType="Int")]
+		public System.Nullable<int> AmountOfStock
+		{
+			get
+			{
+				return this._AmountOfStock;
+			}
+			set
+			{
+				if ((this._AmountOfStock != value))
+				{
+					this._AmountOfStock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Item_Name
+		{
+			get
+			{
+				return this._Item_Name;
+			}
+			set
+			{
+				if ((this._Item_Name != value))
+				{
+					this._Item_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InStock_Desc", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string InStock_Desc
+		{
+			get
+			{
+				return this._InStock_Desc;
+			}
+			set
+			{
+				if ((this._InStock_Desc != value))
+				{
+					this._InStock_Desc = value;
 				}
 			}
 		}

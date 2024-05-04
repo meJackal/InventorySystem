@@ -10,7 +10,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Images/bg.jpg"/>
         </Grid.Background>
-        <Image Margin="2,2,692,331" Source="pack://application:,,,/Images/pawlogo.png"/>
+        <Image Margin="2,2,0,0" Source="pack://application:,,,/Images/logopaw.png" HorizontalAlignment="Left" Width="106" Height="101" VerticalAlignment="Top"/>
 
         <Label Content="PawWorld" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" FontSize="50"
                FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>

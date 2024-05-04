@@ -21,7 +21,7 @@ namespace InventorySystem
     public partial class LogInPage : Window
     {
         DataClasses1DataContext _dbConn = null;
-        bool flag = false;
+        public int _appLogIn;
 
         public LogInPage()
         {
@@ -34,7 +34,6 @@ namespace InventorySystem
         {
             if (tbName.Text.Length > 0 && pbPass.Password.Length > 0)
             {
-                flag = false;
                 IQueryable<Staff> selectResults = from s in _dbConn.Staffs
                                                   where s.Staff_Username == tbName.Text
                                                   select s;
@@ -45,31 +44,36 @@ namespace InventorySystem
                     {
                         if (s.Staff_Password == pbPass.Password || s.Staff_Password == tbPass.Text)
                         {
-                            MessageBox.Show($"Login complete. {s.Staff_Name}");
-                            flag = true;
+                            MessageBox.Show($"Login complete... {s.Staff_Name}");
 
                             if (s.StaffRole_ID == "SR1")
                             {
-                                ManagerPage mp = new ManagerPage();
+                                _appLogIn = 1;
+                                ManagerPage mp = new ManagerPage(_appLogIn);
                                 mp.Show();
+
                             }
                             else if (s.StaffRole_ID == "SR2")
                             {
-                                MainWindow mw = new MainWindow();
+                                _appLogIn = 2;
+                                MainWindow mw = new MainWindow(_appLogIn);
                                 mw.Show();
+
                             }
 
                             this.Close();
                         }
                         else
-                            MessageBox.Show("The password is incorrect.");
+                            MessageBox.Show("The password is incorrect...");
                     }
                 }
                 else
-                    MessageBox.Show("The username does not exist.");
+                    MessageBox.Show("The username does not exist...");
 
                 _dbConn.SubmitChanges();
             }
+            else
+                MessageBox.Show("Please Input Username & Password...");
         }
 
         private void btnToggle_Click(object sender, RoutedEventArgs e)
