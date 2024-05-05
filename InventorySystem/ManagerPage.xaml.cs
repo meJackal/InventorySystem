@@ -220,5 +220,12 @@ namespace InventorySystem
 
             inventoryListViewStaff.ItemsSource = employee.ToList();
         }
+
+        private void btnAddStaff_Click(object sender, RoutedEventArgs e)
+        {
+            AddStaff addStaff = new AddStaff(_appLogIn);
+            addStaff.Show();
+            this.Close();
+        }
     }
 }

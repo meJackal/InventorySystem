@@ -53,7 +53,7 @@
         <Label x:Name="lblAddS" Visibility="Collapsed" Content="Add Staff" Margin="0,15,51,0" HorizontalContentAlignment="Center"
            VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" HorizontalAlignment="Right" Width="128" Height="56" VerticalAlignment="Top"/>
         <Button x:Name="btnAddStaff" Visibility="Collapsed" Margin="0,15,10,0" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Right"
-                Width="82" Height="52" VerticalAlignment="Top">
+                Width="82" Height="52" VerticalAlignment="Top" Click="btnAddStaff_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/8.png"/>
             </Button.Background>
