@@ -30,7 +30,7 @@ namespace InventorySystem
             int count = 1;
             DateTime date = DateTime.Now;
             string convert = "";
-            count = staff.Count();
+            count = count + staff.Count();
             foreach (Staff s in staff)
             {
                 if(s.Staff_Username == tbUser.Text)

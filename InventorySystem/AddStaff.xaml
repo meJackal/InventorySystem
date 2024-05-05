@@ -30,6 +30,8 @@
 
         <Label Content="Password :" HorizontalAlignment="Left" Margin="280,0,0,0" VerticalAlignment="Center" FontSize="20"
                 FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+        <TextBox x:Name="tbPass" HorizontalAlignment="Center" Margin="0,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
+                 FontSize="15" VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" Width="241"/>
 
         <Button x:Name="btnAddStaff" Margin="280,311,280,0" Content="Add Staff"
         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -38,7 +40,6 @@
 
         <Button x:Name="btnBack" Content="Back" Margin="0,10,10,0" Click="btnBack_Click" HorizontalAlignment="Right" Width="100" Height="44" 
         VerticalAlignment="Top" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
-        <TextBox x:Name="tbPass" HorizontalAlignment="Center" Margin="0,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"
-                 FontSize="15" VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" Width="241"/>
+
     </Grid>
 </Window>
