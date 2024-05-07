@@ -11,13 +11,15 @@ namespace InventorySystem
     {
         DataClasses1DataContext _dbConn = null;
         private int _appLogIn;
+        private string _username;
         private staffList _selectedItem;
 
-        public StaffUpdatePage(staffList item, int appLogIn)
+        public StaffUpdatePage(staffList item, int appLogIn, string currUser)
         {
             InitializeComponent();
 
             _appLogIn = appLogIn;
+            _username = currUser;
 
             _dbConn = new DataClasses1DataContext(
                Properties.Settings.Default.MidtermConnectionString);
@@ -46,7 +48,11 @@ namespace InventorySystem
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if (!_dbConn.Staffs.Any(item => item.Staff_Username == tbUser.Text))
+            _dbConn = new DataClasses1DataContext(Properties.Settings.Default.MidtermConnectionString);
+
+            bool usernameExists = _dbConn.Staffs.Any(item => item.Staff_Username == tbUser.Text && item.Staff_ID != _selectedItem.Staff_ID);
+
+            if (!usernameExists)
             {
                 string updateName = tbName.Text;
                 string updateUsername = tbUser.Text;
@@ -82,16 +88,23 @@ namespace InventorySystem
         {
             if (_appLogIn == 1)
             {
-                ManagerPage mp = new ManagerPage(_appLogIn);
+                ManagerPage mp = new ManagerPage(_appLogIn, _username);
                 mp.Show();
                 this.Close();
             }
             else if (_appLogIn == 2)
             {
-                MainWindow mw = new MainWindow(_appLogIn);
+                MainWindow mw = new MainWindow(_appLogIn, _username);
                 mw.Show();
                 this.Close();
             }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            _dbConn.DeleteStaffByID(_selectedItem.Staff_ID);
+            MessageBox.Show("Staff has been Removed...");
+            back();
         }
     }
 }

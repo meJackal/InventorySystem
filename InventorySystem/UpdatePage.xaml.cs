@@ -12,13 +12,15 @@ namespace InventorySystem
     {
         DataClasses1DataContext _dbConn = null;
         private int _appLogIn;
+        private string _username;
         private inventoryList _selectedItem;
 
-        public UpdatePage(inventoryList item, int appLogIn)
+        public UpdatePage(inventoryList item, int appLogIn, string currUser)
         {
             InitializeComponent();
 
             _appLogIn = appLogIn;
+            _username = currUser;
 
             _dbConn = new DataClasses1DataContext(
                Properties.Settings.Default.MidtermConnectionString);
@@ -54,7 +56,11 @@ namespace InventorySystem
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if (!_dbConn.Inventories.Any(item => item.Item_Name == tbName.Text))
+            _dbConn = new DataClasses1DataContext(Properties.Settings.Default.MidtermConnectionString);
+
+            bool itemExists = _dbConn.Inventories.Any(item => item.Item_Name == tbName.Text && item.Inventory_ID != _selectedItem.Inventory_ID);
+
+            if (!itemExists)
             {
                 string updateName = tbName.Text;
                 string updateType = (cmbType.SelectedItem as ComboBoxItem)?.Content.ToString();
@@ -107,16 +113,23 @@ namespace InventorySystem
         {
             if (_appLogIn == 1)
             {
-                ManagerPage mp = new ManagerPage(_appLogIn);
+                ManagerPage mp = new ManagerPage(_appLogIn, _username);
                 mp.Show();
                 this.Close();
             }
             else if (_appLogIn == 2)
             {
-                MainWindow mw = new MainWindow(_appLogIn);
+                MainWindow mw = new MainWindow(_appLogIn,_username);
                 mw.Show();
                 this.Close();
             }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            _dbConn.DeleteInventoryByID(_selectedItem.Inventory_ID);
+            MessageBox.Show("Inventory has been Removed...");
+            back();
         }
     }
 }

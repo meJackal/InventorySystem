@@ -51,7 +51,7 @@
             </Button.Resources>
         </Button>
 
-        <Image Margin="41,1,0,1" Source="pack://application:,,,/Images/logopaw.png" HorizontalAlignment="Left" Width="310"/>
+        <Image Margin="40,0,0,0" Source="pack://application:,,,/Images/logopaw.png" HorizontalAlignment="Left" Width="310"/>
 
     </Grid>
 </Window>

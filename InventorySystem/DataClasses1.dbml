@@ -117,4 +117,12 @@
     <Parameter Name="NewStock" Parameter="newStock" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.DeleteStaffByID" Method="DeleteStaffByID">
+    <Parameter Name="StaffID" Parameter="staffID" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteInventoryByID" Method="DeleteInventoryByID">
+    <Parameter Name="InventoryID" Parameter="inventoryID" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

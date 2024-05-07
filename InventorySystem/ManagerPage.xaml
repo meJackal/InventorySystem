@@ -82,7 +82,7 @@
         <!--#endregion-->
 
         <TextBox x:Name="tbSearch" Margin="150,21,320,0" FontSize="15" Height="30" VerticalAlignment="Top" 
-                VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+                VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" TextChanged="tbSearch_TextChanged"/>
 
         <Button x:Name="btnDogs" Margin="150,68,0,0" 
         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
@@ -160,9 +160,9 @@
             </Button.Template>
         </Button>
 
-        <Button x:Name="btnInventory" Margin="13,151,0,0" FontSize="18"
+        <Button x:Name="btnInventory" Margin="13,0,0,223" FontSize="18"
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="104" Click="btnInventory_Click" Height="60" VerticalAlignment="Top">
+                BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="104" Click="btnInventory_Click" Height="60" VerticalAlignment="Bottom">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/10.png"/>
             </Button.Background>
@@ -175,11 +175,26 @@
             </Button.Template>
         </Button>
 
-        <Button x:Name="btnStaff" Margin="13,216,0,0" FontSize="18"
+        <Button x:Name="btnStaff" Margin="13,0,0,158" FontSize="18"
          HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-         BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="104" Click="btnStaff_Click" Height="60" VerticalAlignment="Top">
+         BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="104" Click="btnStaff_Click" Height="60" VerticalAlignment="Bottom">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/11.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="btnProfile" Margin="13,0,0,60" FontSize="18"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="104" Height="60" VerticalAlignment="Bottom" Click="btnProfile_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/7.png"/>
             </Button.Background>
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">

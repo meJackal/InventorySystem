@@ -15,7 +15,7 @@
         <Image Margin="17,10,0,0" Source="pack://application:,,,/Images/logopaw.png" HorizontalAlignment="Left" Width="100" Height="95" VerticalAlignment="Top"/>
 
         <TextBox x:Name="tbSearch" Margin="150,21,320,0" FontSize="15" Height="30" VerticalAlignment="Top" 
-                 VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold"/>
+                 VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" TextChanged="tbSearch_TextChanged"/>
 
         <ListView x:Name="inventoryListView" d:ItemsSource="{d:SampleData ItemCount=10}" 
                   FontSize="15" Margin="150,133,10,30" MouseDoubleClick="inventoryListView_DoubleClick"
@@ -110,8 +110,24 @@
             </Button.Template>
         </Button>
 
+        <Button x:Name="btnProfile" Margin="13,0,0,60" FontSize="18"
+        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+        BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Width="104" Height="60" VerticalAlignment="Bottom" Click="btnProfile_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/7.png"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{x:Null}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
         <Label Content="Add Product" Margin="0,15,51,0" HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" FontWeight="Bold" Height="56" VerticalAlignment="Top" HorizontalAlignment="Right" Width="128"/>
+               VerticalContentAlignment="Center" FontFamily="PinotGrigioModernW00-Bold" 
+               FontWeight="Bold" Height="56" VerticalAlignment="Top" HorizontalAlignment="Right" Width="128"/>
         <Button x:Name="btnAdd" Margin="0,15,10,0" 
                 BorderBrush="Transparent" BorderThickness="0" Height="56" VerticalAlignment="Top" HorizontalAlignment="Right" Width="82" Click="btnAdd_Click">
             <Button.Background>

@@ -38,7 +38,7 @@
         <elementListCompartment Id="9b1e7a76-ac74-4940-a300-f53807a0122d" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 5.84699625651042); (7.25 : 5.84699625651042); (7.25 : 4.6651025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 5.84699625651042); (6.63541416666667 : 5.84699625651042 : JumpStart); (6.80208083333333 : 5.84699625651042 : JumpEnd); (7.25 : 5.84699625651042); (7.25 : 4.6651025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClasses1DataContext/InStock/InStock_Inventory" />
       <nodes>
         <classShapeMoniker Id="2a515b7a-ecd6-4c0c-97c5-fffdf4225352" />

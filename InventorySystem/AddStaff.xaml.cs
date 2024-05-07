@@ -12,13 +12,18 @@ namespace InventorySystem
     {
         DataClasses1DataContext _dbConn = null;
         private int _appLogIn;
+        private string _username;
 
-        public AddStaff(int appLogIn)
+        public AddStaff(int appLogIn, string currUser)
         {
             InitializeComponent();
+
             _appLogIn = appLogIn;
+            _username = currUser;
+             
             _dbConn = new DataClasses1DataContext(
                Properties.Settings.Default.MidtermConnectionString);
+            
         }
 
         private void btnAddStaff_Click(object sender, RoutedEventArgs e)
@@ -62,7 +67,7 @@ namespace InventorySystem
             }
             if (flag)
             {
-                ManagerPage mp = new ManagerPage(_appLogIn);
+                ManagerPage mp = new ManagerPage(_appLogIn, _username);
                 mp.Show();
                 this.Close();
             }
@@ -77,13 +82,13 @@ namespace InventorySystem
         {
             if (_appLogIn == 1)
             {
-                ManagerPage mp = new ManagerPage(_appLogIn);
+                ManagerPage mp = new ManagerPage(_appLogIn, _username);
                 mp.Show();
                 this.Close();
             }
             else if (_appLogIn == 2)
             {
-                MainWindow mw = new MainWindow(_appLogIn);
+                MainWindow mw = new MainWindow(_appLogIn, _username );
                 mw.Show();
                 this.Close();
             }

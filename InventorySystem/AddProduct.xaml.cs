@@ -11,14 +11,17 @@ namespace InventorySystem
     {
         DataClasses1DataContext _dbConn = null;
         private int _appLogIn;
+        private string _username;
 
-        public AddProduct(int appLogIn)
+
+        public AddProduct(int appLogIn, string currUser)
         {
             InitializeComponent();
             _dbConn = new DataClasses1DataContext(
                 Properties.Settings.Default.MidtermConnectionString);
 
             _appLogIn = appLogIn;
+            _username = currUser;
         }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
@@ -70,15 +73,16 @@ namespace InventorySystem
             }
             if (flag)
             {
+                MessageBox.Show("Successfully Added a New Item...");
                 if (_appLogIn == 1)
                 {
-                    ManagerPage mp = new ManagerPage(_appLogIn);
+                    ManagerPage mp = new ManagerPage(_appLogIn, _username);
                     mp.Show();
                     this.Close();
                 }
                 else if (_appLogIn == 2)
                 {
-                    MainWindow mw = new MainWindow(_appLogIn);
+                    MainWindow mw = new MainWindow(_appLogIn, _username);
                     mw.Show();
                     this.Close();
                 }
@@ -89,13 +93,13 @@ namespace InventorySystem
         {
             if (_appLogIn == 1)
             {
-                ManagerPage mp = new ManagerPage(_appLogIn);
+                ManagerPage mp = new ManagerPage(_appLogIn, _username);
                 mp.Show();
                 this.Close();
             }
             else if (_appLogIn == 2)
             {
-                MainWindow mw = new MainWindow(_appLogIn);
+                MainWindow mw = new MainWindow(_appLogIn, _username);
                 mw.Show();
                 this.Close();
             }

@@ -171,6 +171,20 @@ namespace InventorySystem
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), inventory_ID, newName, newType, newQty, newRemark, newDate, newPrice, newStock);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteStaffByID")]
+		public int DeleteStaffByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StaffID", DbType="VarChar(50)")] string staffID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), staffID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteInventoryByID")]
+		public int DeleteInventoryByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InventoryID", DbType="VarChar(50)")] string inventoryID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), inventoryID);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InStock")]

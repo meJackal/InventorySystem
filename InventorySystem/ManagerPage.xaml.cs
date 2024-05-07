@@ -11,11 +11,13 @@ namespace InventorySystem
     {
         DataClasses1DataContext _dbConn = null;
         private int _appLogIn;
+        private string _username;
 
-        public ManagerPage(int appLogIn)
+        public ManagerPage(int appLogIn, string currUser)
         {
             InitializeComponent();
             _appLogIn = appLogIn;
+            _username = currUser;
 
             _dbConn = new DataClasses1DataContext(
                 Properties.Settings.Default.MidtermConnectionString);
@@ -63,7 +65,7 @@ namespace InventorySystem
             var item = inventoryListView.SelectedItem as inventoryList;
             if (item != null)
             {
-                UpdatePage up = new UpdatePage(item, _appLogIn);
+                UpdatePage up = new UpdatePage(item, _appLogIn, _username);
                 up.Show();
                 this.Close();
             }
@@ -74,7 +76,7 @@ namespace InventorySystem
             var item = inventoryListViewStaff.SelectedItem as staffList;
             if (item != null)
             {
-                StaffUpdatePage sup = new StaffUpdatePage(item, _appLogIn);
+                StaffUpdatePage sup = new StaffUpdatePage(item, _appLogIn,_username);
                 sup.Show();
                 this.Close();
             }
@@ -90,7 +92,7 @@ namespace InventorySystem
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddProduct addProduct = new AddProduct(_appLogIn);
+            AddProduct addProduct = new AddProduct(_appLogIn, _username);
             addProduct.Show();
             this.Close();
         }
@@ -223,8 +225,58 @@ namespace InventorySystem
 
         private void btnAddStaff_Click(object sender, RoutedEventArgs e)
         {
-            AddStaff addStaff = new AddStaff(_appLogIn);
+            AddStaff addStaff = new AddStaff(_appLogIn, _username);
             addStaff.Show();
+            this.Close();
+        }
+
+        private void tbSearch_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            var search = tbSearch.Text.ToLower();
+
+            if (inventoryListView.Visibility == Visibility.Visible)
+            {
+                var searchInventory = from item in _dbConn.InventoryWithTypeDescriptions
+                                        where item.Item_Name.ToLower().Contains(search) ||
+                                              item.InStock_Desc.ToLower().Contains(search) ||
+                                              item.Inventory_Remarks.ToLower().Contains(search)
+                                        select new inventoryList
+                                        {
+                                            Inventory_ID = item.Inventory_ID,
+                                            Inventory_Name = item.Item_Name,
+                                            Inventory_InStock = item.InStock_Desc,
+                                            Inventory_Quantity = item.AmountOfStock ?? 0,
+                                            Inventory_Type = item.ItemType_Desc,
+                                            Inventory_Price = item.ItemCost ?? 0,
+                                            Inventory_Remarks = item.Inventory_Remarks,
+                                            Inventory_Date = item.Date_Checked
+                                        };
+
+                inventoryListView.ItemsSource = searchInventory.ToList();
+            }
+            else if (inventoryListViewStaff.Visibility == Visibility.Visible)
+            {
+                var searchStaff = from staff in _dbConn.StaffWithRoleAndStatus
+                                    where staff.Staff_Name.ToLower().Contains(search) ||
+                                          staff.Staff_Username.ToLower().Contains(search) ||
+                                          staff.StaffRole_Desc.ToLower().Contains(search)
+                                    select new staffList
+                                    {
+                                        Staff_ID = staff.Staff_ID,
+                                        Staff_Name = staff.Staff_Name,
+                                        Staff_Username = staff.Staff_Username,
+                                        Staff_StaffRole = staff.StaffRole_Desc,
+                                        Staff_StaffStatus = staff.StaffStatus_Desc,
+                                    };
+
+                inventoryListViewStaff.ItemsSource = searchStaff.ToList();
+            }
+        }
+
+        private void btnProfile_Click(object sender, RoutedEventArgs e)
+        {
+            ProfilePage pg = new ProfilePage(_appLogIn, _username);
+            pg.Show();
             this.Close();
         }
     }
