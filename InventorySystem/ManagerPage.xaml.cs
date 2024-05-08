@@ -76,7 +76,7 @@ namespace InventorySystem
             var item = inventoryListViewStaff.SelectedItem as staffList;
             if (item != null)
             {
-                StaffUpdatePage sup = new StaffUpdatePage(item, _appLogIn,_username);
+                StaffUpdatePage sup = new StaffUpdatePage(item, _appLogIn, _username);
                 sup.Show();
                 this.Close();
             }
@@ -232,42 +232,40 @@ namespace InventorySystem
 
         private void tbSearch_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            var search = tbSearch.Text.ToLower();
+            var search = tbSearch.Text.ToUpper();
 
             if (inventoryListView.Visibility == Visibility.Visible)
             {
                 var searchInventory = from item in _dbConn.InventoryWithTypeDescriptions
-                                        where item.Item_Name.ToLower().Contains(search) ||
-                                              item.InStock_Desc.ToLower().Contains(search) ||
-                                              item.Inventory_Remarks.ToLower().Contains(search)
-                                        select new inventoryList
-                                        {
-                                            Inventory_ID = item.Inventory_ID,
-                                            Inventory_Name = item.Item_Name,
-                                            Inventory_InStock = item.InStock_Desc,
-                                            Inventory_Quantity = item.AmountOfStock ?? 0,
-                                            Inventory_Type = item.ItemType_Desc,
-                                            Inventory_Price = item.ItemCost ?? 0,
-                                            Inventory_Remarks = item.Inventory_Remarks,
-                                            Inventory_Date = item.Date_Checked
-                                        };
+                                      where item.Inventory_ID.ToUpper().Contains(search) ||
+                                            item.Item_Name.ToUpper().Contains(search)
+                                      select new inventoryList
+                                      {
+                                          Inventory_ID = item.Inventory_ID,
+                                          Inventory_Name = item.Item_Name,
+                                          Inventory_InStock = item.InStock_Desc,
+                                          Inventory_Quantity = item.AmountOfStock ?? 0,
+                                          Inventory_Type = item.ItemType_Desc,
+                                          Inventory_Price = item.ItemCost ?? 0,
+                                          Inventory_Remarks = item.Inventory_Remarks,
+                                          Inventory_Date = item.Date_Checked
+                                      };
 
                 inventoryListView.ItemsSource = searchInventory.ToList();
             }
             else if (inventoryListViewStaff.Visibility == Visibility.Visible)
             {
                 var searchStaff = from staff in _dbConn.StaffWithRoleAndStatus
-                                    where staff.Staff_Name.ToLower().Contains(search) ||
-                                          staff.Staff_Username.ToLower().Contains(search) ||
-                                          staff.StaffRole_Desc.ToLower().Contains(search)
-                                    select new staffList
-                                    {
-                                        Staff_ID = staff.Staff_ID,
-                                        Staff_Name = staff.Staff_Name,
-                                        Staff_Username = staff.Staff_Username,
-                                        Staff_StaffRole = staff.StaffRole_Desc,
-                                        Staff_StaffStatus = staff.StaffStatus_Desc,
-                                    };
+                                  where staff.Staff_ID.ToUpper().Contains(search) ||
+                                        staff.Staff_Name.ToUpper().Contains(search)
+                                  select new staffList
+                                  {
+                                      Staff_ID = staff.Staff_ID,
+                                      Staff_Name = staff.Staff_Name,
+                                      Staff_Username = staff.Staff_Username,
+                                      Staff_StaffRole = staff.StaffRole_Desc,
+                                      Staff_StaffStatus = staff.StaffStatus_Desc,
+                                  };
 
                 inventoryListViewStaff.ItemsSource = searchStaff.ToList();
             }
