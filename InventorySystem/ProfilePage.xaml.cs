@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,27 +53,56 @@ namespace InventorySystem
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if (tbPass.Text == tbConfirmPass.Text)
+            bool usernameExists = false;
+            IQueryable<Staff> staffList = from s in _dbConn.Staffs
+                                      select s;
+            foreach (Staff s in staffList)
             {
-                var staff = (from s in _dbConn.Staffs
-                             where s.Staff_ID == _username
-                             select s).FirstOrDefault();
-
-                if (staff != null)
+                if (s.Staff_Username == tbUser.Text)
                 {
-                    staff.Staff_Name = tbName.Text;
-                    staff.Staff_Username = tbUser.Text;
-                    staff.Staff_Password = tbPass.Text;
-                    _dbConn.SubmitChanges();
-
-                    MessageBox.Show("Profile Updated Successfully...");
-
-                    back();
+                    MessageBox.Show("Staff UserName Already Exist...");
+                    usernameExists = true;
+                    break;
                 }
             }
-            else
+            if(!usernameExists)
             {
-                MessageBox.Show("Passwords does not match...");
+                if (tbName.Text != "" && tbUser.Text != "" && pbPass.Password != "" && pbConfirmPass.Password != "")
+                {
+                    tbPass.Text = pbPass.Password;
+                    tbConfirmPass.Text = pbConfirmPass.Password;
+                    if (tbPass.Text == tbConfirmPass.Text)
+                    {
+                        var staff = (from s in _dbConn.Staffs
+                                     where s.Staff_ID == _username
+                                     select s).FirstOrDefault();
+
+                        if (staff != null)
+                        {
+                            staff.Staff_Name = tbName.Text;
+                            staff.Staff_Username = tbUser.Text;
+                            staff.Staff_Password = tbPass.Text;
+                            _dbConn.SubmitChanges();
+
+                            MessageBox.Show("Profile Updated Successfully...");
+
+                            back();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Passwords does not match...");
+                    }
+                }
+                else
+                {
+                    if (tbName.Text == null)
+                        MessageBox.Show("Please enter your name...");
+                    if (tbUser.Text == null)
+                        MessageBox.Show("Please enter a username...");
+                    if (pbPass.Password == "" || pbConfirmPass.Password == "")
+                        MessageBox.Show("Please enter a password on both password boxes...");
+                }
             }
         }
 
